@@ -170,9 +170,9 @@ jobs:
           CURRENT_TAG=${{ steps.tag_version.outputs.new_tag }}
 
           if [ -n "$PREV_TAG" ]; then
-            difflog generate --from "$PREV_TAG" --to "$CURRENT_TAG" --format Markdown -o release-notes.md --system-prompt "Generate developer friendly release notes based on this git history information. Include SHA hashes and structure the changelog in bullet points. don't make it too long. keep it clean."
+            difflog generate --from "$PREV_TAG" --to "$CURRENT_TAG" --format Markdown -o release-notes.md --system-prompt "Generate developer friendly release notes based on this git history information. Include SHA hashes and structure the changelog in bullet points. don't make it too long and don't overcomplicate it. keep it clean (subtle emoji usage is allowed)."
           else
-            difflog generate --to "$CURRENT_TAG" --format Markdown -o release-notes.md --system-prompt "Generate developer friendly release notes based on this git history information. Include SHA hashes and structure the changelog in bullet points. don't make it too long. keep it clean."
+            difflog generate --to "$CURRENT_TAG" --format Markdown -o release-notes.md --system-prompt "Generate developer friendly release notes based on this git history information. Include SHA hashes and structure the changelog in bullet points. don't make it too long and don't overcomplicate it. keep it clean (subtle emoji usage is allowed)."
           fi
       - name: Create Release
         uses: ncipollo/release-action@v1
